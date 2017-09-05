@@ -317,6 +317,22 @@
       <scope>test</scope>
     </dependency>
 
+    <dependency>
+      <groupId>ir.cafebazaar.kandoo</groupId>
+      <artifactId>s3api</artifactId>
+      <version>0.1.0-SNAPSHOT</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>zeppelin-spark_2.11</artifactId>
+          <groupId>org.apache.zeppelin</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>aws-java-sdk</artifactId>
+          <groupId>com.amazonaws</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
   </dependencies>
 
   <build>

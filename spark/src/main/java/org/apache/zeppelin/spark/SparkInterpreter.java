@@ -31,6 +31,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import com.google.common.base.Joiner;
 
+import ir.cafebazaar.kandoo.s3api.S3Client;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.hadoop.security.UserGroupInformation;
 import org.apache.spark.SparkConf;
@@ -855,6 +856,7 @@ public class SparkInterpreter extends Interpreter {
       binder.put("sc", sc);
       binder.put("sqlc", sqlc);
       binder.put("z", z);
+      binder.put("s3", new S3Client());
 
       if (Utils.isSpark2()) {
         binder.put("spark", sparkSession);
@@ -868,6 +870,8 @@ public class SparkInterpreter extends Interpreter {
               + "_binder.get(\"sqlc\").asInstanceOf[org.apache.spark.sql.SQLContext]");
       interpret("@transient val sqlContext = "
               + "_binder.get(\"sqlc\").asInstanceOf[org.apache.spark.sql.SQLContext]");
+      interpret("@transient val s3 = "
+              + "_binder.get(\"s3\").asInstanceOf[ir.cafebazaar.kandoo.s3api.S3Client]");
 
       if (Utils.isSpark2()) {
         interpret("@transient val spark = "
