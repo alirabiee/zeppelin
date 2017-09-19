@@ -119,7 +119,6 @@ public abstract class Interpreter {
   }
 
   public static Logger logger = LoggerFactory.getLogger(Interpreter.class);
-  private static final String MASTER_ADDRESS = "spark://zeppelin-sparkmaster:7077";
   private InterpreterGroup interpreterGroup;
   private URL[] classloaderUrls;
   protected Properties property;
@@ -160,10 +159,6 @@ public abstract class Interpreter {
   @ZeppelinApi
   public String getProperty(String key) {
     logger.debug("key: {}, value: {}", key, getProperty().getProperty(key));
-
-    if (key.equalsIgnoreCase("master")) {
-      return MASTER_ADDRESS;
-    }
 
     return getProperty().getProperty(key);
   }
