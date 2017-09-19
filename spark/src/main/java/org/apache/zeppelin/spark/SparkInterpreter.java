@@ -350,6 +350,8 @@ public class SparkInterpreter extends Interpreter {
       }
     }
 
+    conf.setMaster(getProperty("master"));
+
     setupConfForPySpark(conf);
     setupConfForSparkR(conf);
     Class SparkSession = Utils.findClass("org.apache.spark.sql.SparkSession");
