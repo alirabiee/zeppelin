@@ -480,6 +480,9 @@ public class SparkInterpreter extends Interpreter {
         conf.set(key, val);
       }
     }
+
+    conf.setMaster(getProperty("master"));
+
     setupConfForPySpark(conf);
     setupConfForSparkR(conf);
     SparkContext sparkContext = new SparkContext(conf);
