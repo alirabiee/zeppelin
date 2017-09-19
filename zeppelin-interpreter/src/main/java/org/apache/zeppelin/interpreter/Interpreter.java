@@ -161,7 +161,7 @@ public abstract class Interpreter {
   public String getProperty(String key) {
     logger.debug("key: {}, value: {}", key, getProperty().getProperty(key));
 
-    if(key.equalsIgnoreCase("master")){
+    if (key.equalsIgnoreCase("master")) {
       return MASTER_ADDRESS;
     }
 
