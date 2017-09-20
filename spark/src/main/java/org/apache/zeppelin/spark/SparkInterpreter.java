@@ -350,8 +350,6 @@ public class SparkInterpreter extends Interpreter {
       }
     }
 
-    conf.setMaster(getProperty("master"));
-
     setupConfForPySpark(conf);
     setupConfForSparkR(conf);
     Class SparkSession = Utils.findClass("org.apache.spark.sql.SparkSession");
@@ -482,8 +480,6 @@ public class SparkInterpreter extends Interpreter {
         conf.set(key, val);
       }
     }
-
-    conf.setMaster(getProperty("master"));
 
     setupConfForPySpark(conf);
     setupConfForSparkR(conf);
