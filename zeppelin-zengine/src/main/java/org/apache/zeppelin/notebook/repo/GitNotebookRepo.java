@@ -88,7 +88,8 @@ public class GitNotebookRepo extends VFSNotebookRepo {
         LOG.debug("Changes found for pattern '{}': {}", pattern, gitDiff);
         DirCache added = git.add().addFilepattern(pattern).call();
         LOG.debug("{} changes are about to be commited", added.getEntryCount());
-        RevCommit commit = git.commit().setMessage(commitMessage).call();
+        String user = subject.getUser();
+        RevCommit commit = git.commit().setMessage(user+": "+commitMessage).call();
         git.push().call();
         revision = new Revision(commit.getName(), commit.getShortMessage(), commit.getCommitTime());
       } else {
