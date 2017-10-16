@@ -22,14 +22,14 @@
   <parent>
     <artifactId>zeppelin</artifactId>
     <groupId>org.apache.zeppelin</groupId>
-    <version>0.7.3-SNAPSHOT</version>
+    <version>0.7.4-SNAPSHOT</version>
     <relativePath>..</relativePath>
   </parent>
 
   <groupId>org.apache.zeppelin</groupId>
   <artifactId>zeppelin-spark_2.10</artifactId>
   <packaging>jar</packaging>
-  <version>0.7.3-SNAPSHOT</version>
+  <version>0.7.4-SNAPSHOT</version>
   <name>Zeppelin: Spark</name>
   <description>Zeppelin spark support</description>
 
@@ -544,7 +544,7 @@
       <properties>
         <spark.version>2.1.0</spark.version>
         <protobuf.version>2.5.0</protobuf.version>
-        <spark.py4j.version>0.10.4</spark.py4j.version>
+        <py4j.version>0.10.4</py4j.version>
         <scala.version>2.11.8</scala.version>
       </properties>
     </profile>
